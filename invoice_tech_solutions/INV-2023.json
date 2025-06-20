@@ -1,0 +1,598 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2025-06-20",
+        "modified": "2025-06-20",
+        "notes": "",
+        "sdk_version": "8.7.0",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "element_create": [
+            {
+                "comment": "Tag single instance of header",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "759",
+                            "$page_width",
+                            "$page_height"
+                        ],
+                        "comment": "Tag header elements",
+                        "element_template": {
+                            "template": {
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "alt": "LOGO: TechSolution",
+                                                "bbox": [
+                                                    "34.79264831542969",
+                                                    "767.1181640625",
+                                                    "72.24668884277344",
+                                                    "804.6034545898438"
+                                                ],
+                                                "comment": "Tag \"Logo TS\" as image",
+                                                "type": "pde_image"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "77.02975463867188",
+                                                    "770.7883911132812",
+                                                    "234.9407501220703",
+                                                    "803.899169921875"
+                                                ],
+                                                "comment": "Tag \"TechSolutions\" as Title",
+                                                "tag": "Title",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "231.85955810546875",
+                                                    "786.188720703125",
+                                                    "516.099365234375",
+                                                    "810.829345703125"
+                                                ],
+                                                "comment": "Tag \"Invoice\" as H1",
+                                                "heading": "h1",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "alt": "Invoice payment status: Paid",
+                                                "bbox": [
+                                                    "520.9461059570312",
+                                                    "784.3612670898438",
+                                                    "560.6473999023438",
+                                                    "806.1027221679688"
+                                                ],
+                                                "comment": "Tag \"PAID\" image",
+                                                "type": "pde_image"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "229.5486602783203",
+                                                    "762.3181762695312",
+                                                    "567.7092895507812",
+                                                    "779.2586059570312"
+                                                ],
+                                                "comment": "Tag \"Issued\" as P",
+                                                "type": "pde_text"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "pagemap": [
+                                    {
+                                        "rd_sort_direction": "2",
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
+                        "type": "pde_header"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag elements on page n.1",
+                "elements": [
+                    {
+                        "bbox": [
+                            "41.66344451904297",
+                            "699.492919921875",
+                            "272.5483703613281",
+                            "734.7857666015625"
+                        ],
+                        "comment": "Tag \"From:\" as H2",
+                        "heading": "h2",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "38.51487731933594",
+                            "510.5221862792969",
+                            "285.01007080078125",
+                            "699.1766967773438"
+                        ],
+                        "comment": "Tag \"From infos\" as paragrapf",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "312",
+                            "699.492919921875",
+                            "552",
+                            "734.7857666015625"
+                        ],
+                        "comment": "Tag \"To:\" as H2",
+                        "heading": "h2",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "310.4299011230469",
+                            "512.832275390625",
+                            "556.9251098632812",
+                            "701.4866943359375"
+                        ],
+                        "comment": "Tag \"To infos\" as paragrapf",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag continuous table and subtotal text",
+                "elements": [
+                    {
+                        "comment": "Tag \"ITEMS\" table",
+                        "element_template": {
+                            "template": {
+                                "cell_update": [
+                                    {
+                                        "cell_header": "true",
+                                        "cell_scope": "column",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$1_cell_row": "1"
+                                                }
+                                            ],
+                                            "param": [
+                                                "pde_table",
+                                                "pde_cell"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    "SUM($ANCHOR-AMOUNT_top,23)",
+                                                    "$parent_right",
+                                                    "SUM($ANCHOR-AMOUNT_top,23)"
+                                                ],
+                                                "comment": "Add line as table rows splitter",
+                                                "flag": "splitter",
+                                                "name": "ROW-SPLITTER",
+                                                "splitter": "pde_cell",
+                                                "type": "pde_line"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "125",
+                                                    "$parent_bottom",
+                                                    "125",
+                                                    "$parent_top"
+                                                ],
+                                                "comment": "Column splitter 1",
+                                                "type": "pde_line"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "309",
+                                                    "$parent_bottom",
+                                                    "309",
+                                                    "$parent_top"
+                                                ],
+                                                "comment": "Column splitter 2",
+                                                "type": "pde_line"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "354",
+                                                    "$parent_bottom",
+                                                    "354",
+                                                    "$parent_top"
+                                                ],
+                                                "comment": "Column splitter 3",
+                                                "type": "pde_line"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "451",
+                                                    "$parent_bottom",
+                                                    "451",
+                                                    "$parent_top"
+                                                ],
+                                                "comment": "Column splitter 4",
+                                                "type": "pde_line"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "pagemap": [
+                                    {
+                                        "statement": "$if",
+                                        "table_update_cell_header": "0",
+                                        "table_update_join": "1",
+                                        "text_table_detect": "0",
+                                        "text_table_detect_col": "0",
+                                        "text_table_detect_row": "0"
+                                    }
+                                ]
+                            }
+                        },
+                        "end_bbox": [
+                            "0",
+                            "MAX($ANCHOR-SUBTOTAL_top, 54)",
+                            "$page_width",
+                            "MAX($ANCHOR-SUBTOTAL_top, 54)"
+                        ],
+                        "flag": "continuous",
+                        "name": "TABLE-ITEMS",
+                        "start_bbox": [
+                            "0",
+                            "$ANCHOR-TABLE_top",
+                            "$page_width",
+                            "$ANCHOR-TABLE_top"
+                        ],
+                        "type": "pde_table"
+                    },
+                    {
+                        "bbox": [
+                            "0",
+                            "MINUS($ANCHOR-SUBTOTAL_top,103)",
+                            "$page_width",
+                            "$ANCHOR-SUBTOTAL_top"
+                        ],
+                        "comment": "Tag \"SUBTOTAL\" text",
+                        "name": "TEXT-SUBTOTAL",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    }
+                ],
+                "query": {
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag single instance of footer",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "0",
+                            "$page_width",
+                            "53"
+                        ],
+                        "comment": "Tag the paragraph and artifact the figure in the footer",
+                        "element_template": {
+                            "template": {
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "31.68865394592285",
+                                                    "32.714599609375",
+                                                    "320.46429443359375",
+                                                    "47.53839111328125"
+                                                ],
+                                                "comment": "Tag Company name as paragraph",
+                                                "type": "pde_text"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "object_update": [
+                                    {
+                                        "comment": "Artifact the figure in the footer",
+                                        "flag": "artifact",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$0_bottom": {
+                                                        "$lte": "47"
+                                                    }
+                                                },
+                                                {
+                                                    "$0_type": {
+                                                        "$ne": "pds_text"
+                                                    }
+                                                }
+                                            ],
+                                            "param": [
+                                                "pds_object"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
+                        "type": "pde_footer"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "$doc_num_pages"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "object_update": [
+            {
+                "comment": "Artifact the initial line in the header",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_bottom": {
+                                "$gte": "813"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact the footer on the other pages",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_top": {
+                                "$lte": "53"
+                            }
+                        },
+                        {
+                            "$page_num": {
+                                "$lt": "$doc_num_pages"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact the watermark",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_fill_color": [
+                                "67",
+                                "97",
+                                "238"
+                            ]
+                        },
+                        {
+                            "$0_text": "INVOICE"
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "pagemap": [
+            {
+                "graphic_table_detect": "0",
+                "statement": "$if",
+                "text_table_detect": "0"
+            }
+        ],
+        "text_line_update": [
+            {
+                "heading": "h3",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Verdana-Bold"
+                            }
+                        },
+                        {
+                            "$0_font_size": "10.495800018310547"
+                        },
+                        {
+                            "$0_fill_color": [
+                                "67",
+                                "97",
+                                "238"
+                            ]
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Create ANCHOR-TABLE to start table",
+                "flag": "anchor",
+                "name": "ANCHOR-TABLE",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Verdana"
+                            }
+                        },
+                        {
+                            "$0_fill_color": [
+                                "255",
+                                "255",
+                                "255"
+                            ]
+                        },
+                        {
+                            "$0_font_size": [
+                                {
+                                    "$gte": "11.9"
+                                },
+                                {
+                                    "$lte": "12"
+                                }
+                            ]
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^Date"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create ANCHOR-SUBTOTAL to end table",
+                "flag": "anchor",
+                "name": "ANCHOR-SUBTOTAL",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Verdana-Bold"
+                            }
+                        },
+                        {
+                            "$0_fill_color": [
+                                "51",
+                                "51",
+                                "51"
+                            ]
+                        },
+                        {
+                            "$0_font_size": [
+                                {
+                                    "$gte": "11.9"
+                                },
+                                {
+                                    "$lte": "12"
+                                }
+                            ]
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^Subtotal"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create ANCHOR-AMOUNT to split table rows",
+                "flag": "anchor",
+                "name": "ANCHOR-AMOUNT",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_size": [
+                                {
+                                    "$gte": "11.995199203491211"
+                                },
+                                {
+                                    "$lte": "12"
+                                }
+                            ]
+                        },
+                        {
+                            "$0_font_name": [
+                                {
+                                    "$regex": "Verdana"
+                                },
+                                {
+                                    "$regex": "^(?!.*\\b[Bb]old\\b).+$"
+                                }
+                            ]
+                        },
+                        {
+                            "$0_left": {
+                                "$gt": "455"
+                            }
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^\\$"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
