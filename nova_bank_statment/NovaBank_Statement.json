@@ -1,0 +1,318 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2025-06-18",
+        "modified": "2025-06-18",
+        "notes": "",
+        "sdk_version": "8.7.0",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "element_create",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "element_create": [
+            {
+                "comment": "Tag elements on page n.1",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "688",
+                            "$page_width",
+                            "$page_height"
+                        ],
+                        "comment": "Tag header",
+                        "element_template": {
+                            "template": {
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "220.5640869140625",
+                                                    "740.5374145507812",
+                                                    "388.82049560546875",
+                                                    "757.9822998046875"
+                                                ],
+                                                "comment": "Tag \"NovaBank text\"",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "92.23400115966797",
+                                                    "695.0120239257812",
+                                                    "321.24200439453125",
+                                                    "713.1600341796875"
+                                                ],
+                                                "comment": "Tag \"Debit Card Statement\" as H1",
+                                                "heading": "h1",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "alt": "LOGO: NovaBank",
+                                                "bbox": [
+                                                    "401.8499755859375",
+                                                    "685.4500122070312",
+                                                    "517.5",
+                                                    "762.5499877929688"
+                                                ],
+                                                "comment": "Add alternate text to NovaBank logo",
+                                                "type": "pde_image"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "pagemap": [
+                                    {
+                                        "rd_sort": "2",
+                                        "rd_sort_direction": "2",
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
+                        "flag": "header",
+                        "type": "pde_container"
+                    },
+                    {
+                        "bbox": [
+                            "88.05127716064453",
+                            "527.709228515625",
+                            "325.1794738769531",
+                            "677.7356567382812"
+                        ],
+                        "comment": "Tag \"NovaBank\" address as single line text",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "328.6666564941406",
+                            "547.7708740234375",
+                            "543.9999389648438",
+                            "674.2466430664062"
+                        ],
+                        "comment": "Tag customer address \"Debit Card Statement for:\" as single line text",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "91.53845977783203",
+                            "447.4625244140625",
+                            "577.128173828125",
+                            "525.9647216796875"
+                        ],
+                        "comment": "Tag \"Statement #\" as single line text",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "88.9230728149414",
+                            "302.6695861816406",
+                            "516.9743041992188",
+                            "411.7004089355469"
+                        ],
+                        "comment": "Tag \"Account Summary\" as table",
+                        "element_template": {
+                            "template": {
+                                "cell_update": [
+                                    {
+                                        "cell_header": "true",
+                                        "cell_scope": "row",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$1_cell_column": "1"
+                                                }
+                                            ],
+                                            "param": [
+                                                "pde_table",
+                                                "pde_cell"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "pagemap": [
+                                    {
+                                        "statement": "$if",
+                                        "table_update_cell_header": "0"
+                                    }
+                                ]
+                            }
+                        },
+                        "type": "pde_table"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag continuous table",
+                "elements": [
+                    {
+                        "end_bbox": [
+                            "0",
+                            "$ANCHOR-Footer_top",
+                            "$page_width",
+                            "$ANCHOR-Footer_top"
+                        ],
+                        "flag": "continuous",
+                        "name": "INITELEM-Table",
+                        "start_bbox": [
+                            "0",
+                            "$ANCHOR-Table_bottom",
+                            "$page_width",
+                            "$ANCHOR-Table_bottom"
+                        ],
+                        "type": "pde_table"
+                    }
+                ],
+                "statement": "$if"
+            }
+        ],
+        "object_update": [
+            {
+                "comment": "Artifact headers except first page",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": {
+                                "$gt": "1"
+                            }
+                        },
+                        {
+                            "$0_bottom": {
+                                "$gte": "740"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact footers except last page",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_top": {
+                                "$lte": "48"
+                            }
+                        },
+                        {
+                            "$page_num": {
+                                "$lt": "$doc_num_pages"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "pagemap": [
+            {
+                "graphic_table_detect": "0",
+                "label_image_detect": "0",
+                "label_word_detect": "0",
+                "statement": "$if",
+                "text_table_detect": "0"
+            }
+        ],
+        "text_line_update": [
+            {
+                "comment": "Create ANCHOR-Table",
+                "flag": "anchor",
+                "name": "ANCHOR-Table",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^Transaction Details"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create ANCHOR-Footer",
+                "flag": "anchor",
+                "name": "ANCHOR-Footer",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^NovaBank"
+                            }
+                        },
+                        {
+                            "$page_num": "$doc_num_pages"
+                        },
+                        {
+                            "$0_bottom": {
+                                "$lte": "48"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark H2 blue headings",
+                "heading": "h2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Calibri-Bold"
+                            }
+                        },
+                        {
+                            "$0_font_size": "14"
+                        },
+                        {
+                            "$0_fill_color": [
+                                "54",
+                                "95",
+                                "145"
+                            ]
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
