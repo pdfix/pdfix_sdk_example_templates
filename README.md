@@ -1,6 +1,6 @@
 # PDFix SDK Template Examples
 
-This repository contains practical examples of **Template Layout configurations** used for auto-tagging non-tagged PDFs with the [PDFix SDK](https://pdfix.net/pdfix-sdk/) and [PDFix Desktop](https://pdfix.net/pdfix-desktop/).
+This repository contains practical examples of **Template Layout configurations** used for auto-tagging non-tagged PDFs with the [PDFix SDK]https://pdfix.net/products/pdfix-sdk/) and [PDFix Desktop](https://pdfix.net/products/pdfix-desktop-pro/).
 
 Templates describe how to detect visual patterns in PDFs (tables, headers, footers, text blocks, etc.) and map them to accessible tagged structures (like headings, paragraphs, and tables) — all through a flexible, human-readable JSON format.
 
