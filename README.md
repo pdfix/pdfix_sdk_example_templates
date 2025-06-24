@@ -87,13 +87,12 @@ Read the [PDFix Template Layout Guide](https://pdfix.net/user-guide-template/) f
 
 ## Example Scenarios
 
-| Folder                | Description                                                       |
-| --------------------- | ----------------------------------------------------------------- |
-| `invoice_basic`       | Identifies tables and headers in a basic invoice layout           |
-| `catalog_layout`      | Detects product blocks, titles, images, and descriptions          |
-| `report_multi_column` | Handles multi-column reading order with headers and footnotes     |
-| `table_split_merge`   | Demonstrates text splitting and row recognition in complex tables |
-| `form_like_structure` | Tags label-field patterns in simulated form layouts               |
+| Folder                 | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| `misc`                 | Identifies multi-level lists in miscellaneous documents           |
+| `nova_bank_statement`  | Detects document headings, text blocks, and continuous tables     |
+| `pdfix_invoice      `  | Handles image logos, text blocks, and graphic tables              |
+| `tech_solution_invoice`| Detects headers, footers, headings, and complex tables            |
 
 > More examples will be added regularly — contributions welcome!
 
