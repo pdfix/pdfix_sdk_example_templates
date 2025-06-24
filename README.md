@@ -22,10 +22,10 @@ Each example directory includes:
 
 You can use these templates programmatically in your SDK projects. See `AddTags` examples in official SDK sample repos:
 
-- [Python – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_python/blob/master/samples/add_tags.py)
-- [Java – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_java/blob/master/src/AddTags.java)
+- [Python – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_python/blob/master/src/AddTags.py)
+- [Java – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_java/blob/master/src/main/java/net/pdfix/samples/AddTags.java)
 - [C++ – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_cpp/blob/master/src/AddTags.cpp)
-- [.NET – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_dotnet/blob/master/AddTags.cs)
+- [.NET – AddTags Example](https://github.com/pdfix/pdfix_sdk_example_dotnet/blob/master/src/AddTags.cs)
 
 Typical workflow:
 ```python
