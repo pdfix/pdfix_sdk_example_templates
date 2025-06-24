@@ -70,7 +70,7 @@ For more information, visit user's guide:
 
 ---
 
-## 🧩 What Is a Template?
+## What Is a Template?
 
 Templates are JSON files that describe:
 
@@ -80,7 +80,7 @@ Templates are JSON files that describe:
 * Priority-based **layout detection logic**
 * Optional **thresholds** and conditional behavior
 
-Read the [PDFix Template Layout Guide](https://pdfix.net/template-layout-guide) for syntax and design best practices.
+Read the [PDFix Template Layout Guide](https://pdfix.net/user-guide-template/) for syntax and design best practices.
 
 ---
 
