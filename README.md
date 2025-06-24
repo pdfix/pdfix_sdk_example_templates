@@ -117,10 +117,3 @@ Found a layout worth templating? Want to improve an example?
 ---
 
 Made with 💡 by the [PDFix Team](https://pdfix.net) and the community
-
-```
-
----
-
-Let me know if you'd like badges (like GitHub stars, PDFix SDK versions, etc.) or a GitHub Pages site for browsing examples online.
-```
