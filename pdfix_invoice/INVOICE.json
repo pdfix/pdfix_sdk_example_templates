@@ -1,0 +1,453 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2025-06-24",
+        "modified": "2025-06-24",
+        "notes": "",
+        "sdk_version": "8.7.0",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "table_graphic_detect",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "element_create": [
+            {
+                "comment": "Tag header on page n.1",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "620",
+                            "$page_width",
+                            "$page_height"
+                        ],
+                        "element_template": {
+                            "template": {
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "70",
+                                                    "690",
+                                                    "140",
+                                                    "706"
+                                                ],
+                                                "comment": "Mark \"Invoice\" as H1",
+                                                "heading": "h1",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "69.30143737792969",
+                                                    "637.7015991210938",
+                                                    "351.3875732421875",
+                                                    "691.4130859375"
+                                                ],
+                                                "comment": "Tag 'Invoice #' paragraph as individual P",
+                                                "text_flag": "new_line",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "alt": "LOGO: Pdfix s.r.o.",
+                                                "bbox": [
+                                                    "365.1000061035156",
+                                                    "671",
+                                                    "545.0999755859375",
+                                                    "720"
+                                                ],
+                                                "comment": "Tag company logo",
+                                                "type": "pde_image"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "pagemap": [
+                                    {
+                                        "rd_sort": "2",
+                                        "rd_sort_direction": "1",
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
+                        "type": "pde_header"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag \"From\" and \"Bill to\" on page n.1",
+                "elements": [
+                    {
+                        "bbox": [
+                            "69.30143737792969",
+                            "458.0123291015625",
+                            "321.12921142578125",
+                            "612.3107299804688"
+                        ],
+                        "comment": "Tag 'From' company as single line P",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "324.88885498046875",
+                            "461.60662841796875",
+                            "578.9443969726562",
+                            "613.5875244140625"
+                        ],
+                        "comment": "Tag 'Bill to' as single line  P",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "378.712646484375",
+                            "$page_width",
+                            "420.5238037109375"
+                        ],
+                        "flag": "no_table",
+                        "heading": "h2",
+                        "type": "pde_text"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag continuous table of items TABLE-ITEMS",
+                "elements": [
+                    {
+                        "comment": "Tag continuous table that starts with ANCHOR-ITEMS end ends with ANCHOR-SUBTOTAL ",
+                        "element_template": {
+                            "template": {
+                                "cell_update": [
+                                    {
+                                        "cell_header": "true",
+                                        "cell_scope": "column",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$1_cell_row": "1"
+                                                },
+                                                {
+                                                    "$page_num": "$ANCHOR-ITEMS_page_num"
+                                                }
+                                            ],
+                                            "param": [
+                                                "pde_table",
+                                                "pde_cell"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "pagemap": [
+                                    {
+                                        "graphic_table_detect": "0",
+                                        "statement": "$if",
+                                        "table_update_cell_header": "0"
+                                    }
+                                ]
+                            }
+                        },
+                        "end_bbox": [
+                            "0",
+                            "$ANCHOR-SUBTOTAL_top",
+                            "$page_width",
+                            "$ANCHOR-SUBTOTAL_top"
+                        ],
+                        "flag": "continuous|no_expand",
+                        "name": "TABLE-ITEMS",
+                        "start_bbox": [
+                            "0",
+                            "MINUS($ANCHOR-ITEMS_bottom,16)",
+                            "$page_width",
+                            "MINUS($ANCHOR-ITEMS_bottom,16)"
+                        ],
+                        "type": "pde_table"
+                    }
+                ],
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag sections under the table TABLE-ITEMS",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "MINUS($ANCHOR-SUBTOTAL_top,40)",
+                            "$page_width",
+                            "$ANCHOR-SUBTOTAL_top"
+                        ],
+                        "comment": "Tag \"Subtotal\" section as a text",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "0",
+                            "MINUS($ANCHOR-PAYMENT_top,58)",
+                            "$page_width",
+                            "$ANCHOR-PAYMENT_top"
+                        ],
+                        "comment": "Tag \"Payment Instructions:\" section as a text",
+                        "text_flag": "new_line",
+                        "type": "pde_text"
+                    }
+                ],
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag footer on the last page",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "0",
+                            "$page_width",
+                            "48"
+                        ],
+                        "element_template": {
+                            "template": {
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "73.05699157714844",
+                                                    "37.130001068115234",
+                                                    "131.18499755859375",
+                                                    "46.790000915527344"
+                                                ],
+                                                "comment": "Mark \"Invoice\" as H1",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "444.0199890136719",
+                                                    "36.6619987487793",
+                                                    "539.6480102539062",
+                                                    "46.86199951171875"
+                                                ],
+                                                "comment": "Tag 'Invoice #' paragraph as individual P",
+                                                "type": "pde_text"
+                                            }
+                                        ],
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$page_num": "$doc_num_pages"
+                                                }
+                                            ],
+                                            "comment": "Comment text"
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
+                        "type": "pde_footer"
+                    }
+                ],
+                "query": {
+                    "$and": [
+                        {
+                            "$page_num": "1"
+                        }
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "object_update": [
+            {
+                "comment": "Artifact footer page objects on all pages except last",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_top": {
+                                "$lte": "47"
+                            }
+                        },
+                        {
+                            "$page_num": {
+                                "$lt": "$doc_num_pages"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact gray background rectangle ",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_fill_color": [
+                                "217",
+                                "217",
+                                "217"
+                            ]
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "pagemap": [
+            {
+                "comment": "Do not detect tables ans labels, the structure is already defined in initial elements",
+                "graphic_table_detect": "0",
+                "label_image_detect": "0",
+                "label_word_detect": "0",
+                "statement": "$if",
+                "text_table_detect": "0"
+            }
+        ],
+        "text_line_update": [
+            {
+                "comment": "Create anchor ANCHOR-PAYMENT",
+                "flag": "anchor",
+                "name": "ANCHOR-PAYMENT",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Arial-BoldMT"
+                            }
+                        },
+                        {
+                            "$0_font_size": "14"
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^Payment Instructions"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark H2 headings",
+                "heading": "h2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Arial-BoldMT"
+                            }
+                        },
+                        {
+                            "$0_font_size": "14"
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Create anchor ANCHOR-ITEMS",
+                "flag": "anchor|no_table",
+                "name": "ANCHOR-ITEMS",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Arial-BoldMT"
+                            }
+                        },
+                        {
+                            "$0_font_size": "14"
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "Items"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create anchor ANCHOR-SUBTOTAL",
+                "flag": "anchor",
+                "name": "ANCHOR-SUBTOTAL",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Arial-BoldMT"
+                            }
+                        },
+                        {
+                            "$0_font_size": "12"
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^Subtotal"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
