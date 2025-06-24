@@ -6,7 +6,7 @@ Templates describe how to detect visual patterns in PDFs (tables, headers, foote
 
 ---
 
-## 📁 Repository Contents
+## Repository Contents
 
 Each example directory includes:
 
@@ -80,11 +80,11 @@ Templates are JSON files that describe:
 * Priority-based **layout detection logic**
 * Optional **thresholds** and conditional behavior
 
-📘 Read the [PDFix Template Layout Guide](https://pdfix.net/template-layout-guide) for syntax and design best practices.
+Read the [PDFix Template Layout Guide](https://pdfix.net/template-layout-guide) for syntax and design best practices.
 
 ---
 
-## 🧪 Example Scenarios
+## Example Scenarios
 
 | Folder                | Description                                                       |
 | --------------------- | ----------------------------------------------------------------- |
@@ -98,14 +98,14 @@ Templates are JSON files that describe:
 
 ---
 
-## 📎 License
+## License
 
 All templates and configs: [MIT License](LICENSE)
 Sample PDFs: for **educational/demo purposes only**
 
 ---
 
-## 🤝 Contribute
+## Contribute
 
 Found a layout worth templating? Want to improve an example?
 
