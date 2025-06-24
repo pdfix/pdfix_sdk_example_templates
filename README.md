@@ -11,8 +11,8 @@ Templates describe how to detect visual patterns in PDFs (tables, headers, foote
 Each example directory includes:
 
 - `original.pdf` – Unstructured, non-tagged source PDF
-- `template.json` – Template Layout file for structure detection
-- `tagged.pdf` – Output PDF with semantic tagging
+- `original.json` – Template Layout file for structure detection
+- `original_tagged.pdf` – Output PDF with semantic tagging
 
 ---
 
@@ -31,12 +31,12 @@ Typical workflow:
 ```python
 pdfix = GetPdfix()
 doc = pdfix.OpenDoc("original.pdf", "")
-tmplStm = pdfix.CreateFileStream("template.json", kPsReadOnly)
+tmplStm = pdfix.CreateFileStream("original.json", kPsReadOnly)
 tmpl.LoadFromStream(tmplStm, kDataFormatJson)
 tmplStm.Destroy()
 tagsParams = PdfTagsParams()
 doc.AddTags(tagsParams)
-doc.Save("output.pdf", kSaveFull)
+doc.Save("original_tagged.pdf", kSaveFull)
 doc.Close()
 ````
 
@@ -49,7 +49,7 @@ Use PDFix CLI to apply templates without writing any code.
 **Basic command:**
 
 ```bash
-pdfix_app add-tags -i original.pdf -o tagged.pdf -c template.json
+pdfix_app add-tags -i original.pdf -o original_tagged.pdf -c original.json
 ```
 
 Full CLI documentation:
@@ -62,7 +62,7 @@ Full CLI documentation:
 1. Open [PDFix Desktop](https://pdfix.net/pdfix-desktop/)
 2. Load an `original.pdf` file
 3. Run Accessibility -> AutoTag
-4. Load the `template.json`
+4. Load the `original.json`
 7. Click **Run** to generate a tagged PDF
 
 For more information, visit user's guide:
