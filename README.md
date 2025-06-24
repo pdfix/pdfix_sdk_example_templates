@@ -31,6 +31,7 @@ Typical workflow:
 ```python
 pdfix = GetPdfix()
 doc = pdfix.OpenDoc("original.pdf", "")
+tmpl = doc.GetTemplate()
 tmplStm = pdfix.CreateFileStream("original.json", kPsReadOnly)
 tmpl.LoadFromStream(tmplStm, kDataFormatJson)
 tmplStm.Destroy()
