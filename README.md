@@ -66,42 +66,14 @@ Full CLI documentation:
 4. Load the `original.json`
 7. Click **Run** to generate a tagged PDF
 
-For more information, visit user's guide:
+For more information, visit the user's guide:
 [Auto-Tag](https://pdfix.net/user-guide-workflow-for-creating-an-accessible-pdf/?ref=ref-auto-tag#Auto-tag)
 
 ---
 
 ## What Is a Template?
 
-Templates are JSON files that describe:
-
-* Visual **anchors** and **initial elements**
-* **Bounding boxes** and **neighbor rules**
-* Custom **tag mappings** (`<Table>`, `<P>`, `<H1>`, etc.)
-* Priority-based **layout detection logic**
-* Optional **thresholds** and conditional behavior
-
 Read the [PDFix Template Layout Guide](https://pdfix.net/user-guide-template/) for syntax and design best practices.
-
----
-
-## Example Scenarios
-
-| Folder                 | Description                                                       |
-| ---------------------- | ----------------------------------------------------------------- |
-| `misc`                 | Identifies multi-level lists in miscellaneous documents           |
-| `nova_bank_statement`  | Detects document headings, text blocks, and continuous tables     |
-| `pdfix_invoice      `  | Handles image logos, text blocks, and graphic tables              |
-| `tech_solution_invoice`| Detects headers, footers, headings, and complex tables            |
-
-> More examples will be added regularly — contributions welcome!
-
----
-
-## License
-
-All templates and configs: [MIT License](LICENSE)
-Sample PDFs: for **educational/demo purposes only**
 
 ---
 
