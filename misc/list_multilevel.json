@@ -1,0 +1,68 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2025-06-15",
+        "modified": "2025-06-15",
+        "notes": "",
+        "sdk_version": "8.6.1",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "list_detect",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "word_update": [
+            {
+                "label": "li_1",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\([a-z]\\)$"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "label": "li_2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\(\\d\\)$"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "label": "li_3",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\((i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv|xvi|xvii|xviii|xix|xx)\\)$"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
