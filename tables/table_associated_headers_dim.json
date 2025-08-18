@@ -1,0 +1,160 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2025-08-13",
+        "modified": "2025-08-18",
+        "notes": "",
+        "sdk_version": "8.7.3",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "table_update",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "element_create": [
+            {
+                "comment": "Artifact objects on each page",
+                "elements": [
+                    {
+                        "bbox": [
+                            "0",
+                            "0",
+                            "$page_width",
+                            "56"
+                        ],
+                        "comment": "Artifact footer",
+                        "flag": "footer|artifact",
+                        "type": "pde_text"
+                    },
+                    {
+                        "bbox": [
+                            "0",
+                            "0",
+                            "70",
+                            "637"
+                        ],
+                        "comment": "Artifact side objects",
+                        "flag": "artifact",
+                        "type": "pde_image"
+                    },
+                    {
+                        "bbox": [
+                            "0",
+                            "SUM($ANCHOR-TABLE_top,6)",
+                            "$page_width",
+                            "660"
+                        ],
+                        "comment": "Artifact text above the table",
+                        "flag": "artifact",
+                        "type": "pde_text"
+                    }
+                ],
+                "query": {
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag header elements on page n.1",
+                "elements": [
+                    {
+                        "alt": "LOGO: UNtrade&development",
+                        "bbox": [
+                            "0",
+                            "680",
+                            "$page_width",
+                            "$page_height"
+                        ],
+                        "comment": "Tag Logo",
+                        "single_instance": "type|left|top",
+                        "type": "pde_image"
+                    },
+                    {
+                        "bbox": [
+                            "0",
+                            "660",
+                            "$page_width",
+                            "680"
+                        ],
+                        "comment": "Tag heading H1 ",
+                        "heading": "h1",
+                        "single_instance": "type|left|top",
+                        "type": "pde_text"
+                    }
+                ],
+                "query": {
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag table",
+                "elements": [
+                    {
+                        "bbox": [
+                            "68",
+                            "56",
+                            "570",
+                            "SUM($ANCHOR-TABLE_top,4)"
+                        ],
+                        "flag": "no_expand|continuous",
+                        "type": "pde_table"
+                    }
+                ],
+                "query": {
+                },
+                "statement": "$if"
+            }
+        ],
+        "pagemap": [
+            {
+                "graphic_table_detect": "0",
+                "label_image_detect": "0",
+                "label_word_detect": "0",
+                "statement": "$if",
+                "text_table_detect": "0",
+                "text_table_detect_col": "0",
+                "text_table_detect_row": "0"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Create ANCHOR-TABLE",
+                "flag": "anchor",
+                "name": "ANCHOR-TABLE",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": "HEPZQS+Calibri,Bold"
+                        },
+                        {
+                            "$0_font_size": [
+                                {
+                                    "$gte": "10.9"
+                                },
+                                {
+                                    "$lte": "11"
+                                }
+                            ]
+                        },
+                        {
+                            "$0_fill_color": [
+                                "105",
+                                "105",
+                                "105"
+                            ]
+                        },
+                        {
+                            "$0_text": "Code"
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
