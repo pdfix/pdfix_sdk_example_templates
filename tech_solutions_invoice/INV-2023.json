@@ -2,9 +2,9 @@
     "metadata": {
         "author": "name",
         "created": "2025-06-20",
-        "modified": "2025-06-20",
+        "modified": "2025-08-23",
         "notes": "",
-        "sdk_version": "8.7.0",
+        "sdk_version": "8.7.3",
         "version": "1"
     },
     "settings": {
@@ -268,18 +268,18 @@
                             }
                         },
                         "end_bbox": [
-                            "0",
+                            "34",
                             "MAX($ANCHOR-SUBTOTAL_top, 54)",
-                            "$page_width",
+                            "560",
                             "MAX($ANCHOR-SUBTOTAL_top, 54)"
                         ],
-                        "flag": "continuous",
+                        "flag": "continuous|no_expand",
                         "name": "TABLE-ITEMS",
                         "start_bbox": [
-                            "0",
-                            "$ANCHOR-TABLE_top",
-                            "$page_width",
-                            "$ANCHOR-TABLE_top"
+                            "34",
+                            "SUM($ANCHOR-TABLE_top, 16)",
+                            "560",
+                            "SUM($ANCHOR-TABLE_top, 16)"
                         ],
                         "type": "pde_table"
                     },
