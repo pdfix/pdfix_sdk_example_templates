@@ -1,0 +1,400 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2025-06-18",
+        "modified": "2025-08-24",
+        "notes": "",
+        "sdk_version": "8.7.3",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "alt_update": [
+            {
+                "children": "false",
+                "comment": "Alternate text for chart - text above",
+                "distance": "12",
+                "position": "top",
+                "query": {
+                    "param": [
+                        "pde_image"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "element_create": [
+            {
+                "comment": "Mark all charts as image",
+                "elements": [
+                    {
+                        "end_bbox": [
+                            "0",
+                            "$ANCHOR-SOURCE-LEFT_top",
+                            "305",
+                            "$ANCHOR-SOURCE-LEFT_top"
+                        ],
+                        "name": "CHART-IMAGE",
+                        "start_bbox": [
+                            "0",
+                            "$ANCHOR-TOP-IMAGE-LEFT_bottom",
+                            "305",
+                            "$ANCHOR-TOP-IMAGE-LEFT_bottom"
+                        ],
+                        "type": "pde_image"
+                    },
+                    {
+                        "end_bbox": [
+                            "306",
+                            "$ANCHOR-SOURCE-RIGHT_top",
+                            "$page_width",
+                            "$ANCHOR-SOURCE-RIGHT_top"
+                        ],
+                        "name": "CHART-IMAGE2",
+                        "start_bbox": [
+                            "306",
+                            "$ANCHOR-TOP-IMAGE-RIGHT_bottom",
+                            "$page_width",
+                            "$ANCHOR-TOP-IMAGE-RIGHT_bottom"
+                        ],
+                        "type": "pde_image"
+                    }
+                ],
+                "query": {
+                },
+                "statement": "$if"
+            }
+        ],
+        "object_update": [
+            {
+                "comment": "Mark line in header as artifact",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_bottom": {
+                                "$gte": "728"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_path"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark the footer on other pages as an artifact.",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_top": {
+                                "$lte": "43"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark vertical line on page nr.2 as artifact",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_stroke_color": [
+                                "0",
+                                "170",
+                                "210"
+                            ]
+                        },
+                        {
+                            "$0_height": "36"
+                        }
+                    ],
+                    "param": [
+                        "pds_path"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "pagemap": [
+            {
+                "rd_sort": "2",
+                "rd_sort_direction": "1",
+                "statement": "$if"
+            }
+        ],
+        "text_line_neighbours": [
+            {
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$ne": "$1_font_name"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line",
+                        "pde_text_line"
+                    ]
+                },
+                "split": "true",
+                "statement": "$if"
+            },
+            {
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_size": "9"
+                        },
+                        {
+                            "$1_font_size": "9"
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line",
+                        "pde_text_line"
+                    ]
+                },
+                "split": "false",
+                "statement": "$if"
+            }
+        ],
+        "text_line_update": [
+            {
+                "comment": "Mark H1",
+                "heading": "h1",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_size": "18"
+                        },
+                        {
+                            "$0_font_name": {
+                                "$regex": "HelveticaNeueLTStd-Bd"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark H2",
+                "heading": "h2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_size": "16"
+                        },
+                        {
+                            "$0_font_name": {
+                                "$regex": "HelveticaNeueLTStd-Lt"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark H3",
+                "heading": "h3",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "HelveticaNeueLTStd-Bd"
+                            }
+                        },
+                        {
+                            "$0_font_size": "12"
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark H4",
+                "heading": "h4",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "HelveticaNeueLTStd-Bd"
+                            }
+                        },
+                        {
+                            "$0_font_size": "10"
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "text_update": [
+            {
+                "comment": "Create ANCHOR-TOP-IMAGE-RIGHT",
+                "flag": "anchor",
+                "name": "ANCHOR-TOP-IMAGE-RIGHT",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "HelveticaNeueLTStd-Lt"
+                            }
+                        },
+                        {
+                            "$0_font_size": "8"
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^(?!Contact|For).*"
+                            }
+                        },
+                        {
+                            "$0_fill_color": [
+                                "35",
+                                "31",
+                                "32"
+                            ]
+                        },
+                        {
+                            "$0_left": [
+                                {
+                                    "$gt": "312"
+                                },
+                                {
+                                    "$lt": "316"
+                                }
+                            ]
+                        }
+                    ],
+                    "param": [
+                        "pde_text"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Create ANCHOR-SOURCE-LEFT",
+                "flag": "anchor",
+                "name": "ANCHOR-SOURCE-LEFT",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^Sources:$|^Source:$"
+                            }
+                        },
+                        {
+                            "$0_font_size": "7.5"
+                        },
+                        {
+                            "$0_left": {
+                                "$lt": "305"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create ANCHOR-TOP-IMAGE-LEFT",
+                "flag": "anchor",
+                "name": "ANCHOR-TOP-IMAGE-LEFT",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "HelveticaNeueLTStd-Lt"
+                            }
+                        },
+                        {
+                            "$0_font_size": "8"
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^(?!Contact|For).*"
+                            }
+                        },
+                        {
+                            "$0_fill_color": [
+                                "35",
+                                "31",
+                                "32"
+                            ]
+                        },
+                        {
+                            "$0_left": [
+                                {
+                                    "$lt": "56"
+                                },
+                                {
+                                    "$gt": "52"
+                                }
+                            ]
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create ANCHOR-SOURCE-RIGHT",
+                "flag": "anchor",
+                "name": "ANCHOR-SOURCE-RIGHT",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^Sources:$|^Source:$"
+                            }
+                        },
+                        {
+                            "$0_font_size": "7.5"
+                        },
+                        {
+                            "$0_right": {
+                                "$gt": "305"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
