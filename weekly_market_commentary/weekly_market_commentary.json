@@ -2,7 +2,7 @@
     "metadata": {
         "author": "name",
         "created": "2025-08-26",
-        "modified": "2025-08-27",
+        "modified": "2025-09-02",
         "notes": "",
         "sdk_version": "8.7.3",
         "version": "1"
@@ -751,7 +751,6 @@
                 "comment": "Tag elements on page nr. 3",
                 "elements": [
                     {
-                        "col_num": "5",
                         "element_template": {
                             "template": {
                                 "cell_update": [
@@ -815,78 +814,13 @@
                                         "elements": [
                                             {
                                                 "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,20.15)",
-                                                    "SUM($parent_left,220.40)",
-                                                    "MINUS($parent_top,0.00)"
+                                                    "$ANCHOR-MI-COL-SPLITTER_left",
+                                                    "$parent_bottom",
+                                                    "$ANCHOR-MI-COL-SPLITTER_left",
+                                                    "$parent_top"
                                                 ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,220.39)",
-                                                    "MINUS($parent_top,20.15)",
-                                                    "SUM($parent_left,296.82)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,296.81)",
-                                                    "MINUS($parent_top,20.15)",
-                                                    "SUM($parent_left,370.88)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,370.87)",
-                                                    "MINUS($parent_top,20.15)",
-                                                    "SUM($parent_left,444.34)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "4",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,444.33)",
-                                                    "MINUS($parent_top,20.15)",
-                                                    "SUM($parent_left,540.32)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "5",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
+                                                "flag": "splitter",
+                                                "type": "pde_line"
                                             }
                                         ],
                                         "query": {
@@ -1489,6 +1423,44 @@
                     ],
                     "param": [
                         "pde_text"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Create Anchor Date for column splitters",
+                "flag": "anchor",
+                "name": "ANCHOR-MI-COL-SPLITTER",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^(0?[1-9]|1[0-2])/(0?[1-9]|[12]\\d|3[01])/(?:19|20)\\d{2}$"
+                            }
+                        },
+                        {
+                            "$0_font_size": [
+                                {
+                                    "$gte": "10"
+                                },
+                                {
+                                    "$lte": "11"
+                                }
+                            ]
+                        },
+                        {
+                            "$0_font_name": {
+                                "$regex": "Avenir-Book"
+                            }
+                        },
+                        {
+                            "$page_num": "3"
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
                     ]
                 },
                 "statement": "$if"
