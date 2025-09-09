@@ -1,0 +1,74 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "yyyy/mm/dd",
+        "modified": "2025-09-09",
+        "notes": "",
+        "sdk_version": "8.7.4",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "element_update": [
+            {
+                "alt": "Checkbox ON",
+                "label": "label_no",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_width": {
+                                "$lte": "12"
+                            }
+                        },
+                        {
+                            "$0_height": {
+                                "$lte": "12"
+                            }
+                        },
+                        {
+                            "$0_object_num": {
+                                "$gt": "1"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_image"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "alt": "Checkbox OFF",
+                "label": "label_no",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_width": {
+                                "$lte": "12"
+                            }
+                        },
+                        {
+                            "$0_height": {
+                                "$lte": "12"
+                            }
+                        },
+                        {
+                            "$0_object_num": {
+                                "$lte": "1"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_image"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
