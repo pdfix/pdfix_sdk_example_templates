@@ -2,9 +2,9 @@
     "metadata": {
         "author": "name",
         "created": "2025-06-18",
-        "modified": "2026-02-03",
+        "modified": "2025-08-24",
         "notes": "",
-        "sdk_version": "8.7.10",
+        "sdk_version": "8.7.3",
         "version": "1"
     },
     "settings": {
@@ -14,6 +14,20 @@
         "substructure_form_xobject": "true"
     },
     "template": {
+        "alt_update": [
+            {
+                "children": "false",
+                "comment": "Alternate text for chart - text above",
+                "distance": "12",
+                "position": "top",
+                "query": {
+                    "param": [
+                        "pde_image"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
         "element_create": [
             {
                 "comment": "Mark all charts as image",
@@ -52,20 +66,6 @@
                     }
                 ],
                 "query": {
-                },
-                "statement": "$if"
-            }
-        ],
-        "element_prop_update": [
-            {
-                "bbox_padding": "true",
-                "bbox_padding_top": "12",
-                "children": "false",
-                "comment": "Alternate text for chart - text above",
-                "query": {
-                    "param": [
-                        "pde_element"
-                    ]
                 },
                 "statement": "$if"
             }
