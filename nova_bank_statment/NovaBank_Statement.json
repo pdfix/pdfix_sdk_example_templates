@@ -2,9 +2,9 @@
     "metadata": {
         "author": "name",
         "created": "2025-06-18",
-        "modified": "2025-06-18",
+        "modified": "2026-02-28",
         "notes": "",
-        "sdk_version": "8.7.0",
+        "sdk_version": "8.7.14",
         "version": "1"
     },
     "settings": {
@@ -72,7 +72,7 @@
                                 "pagemap": [
                                     {
                                         "rd_sort": "2",
-                                        "rd_sort_direction": "2",
+                                        "rd_sort_direction": "1",
                                         "statement": "$if"
                                     }
                                 ]
