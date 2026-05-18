@@ -1,0 +1,117 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2026-05-18",
+        "modified": "2026-05-19",
+        "notes": "",
+        "sdk_version": "9.0.1",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "object_update": [
+            {
+                "comment": "Artifact header on page n.1",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_bottom": {
+                                "$gte": "726"
+                            }
+                        },
+                        {
+                            "$page_num": "1"
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact footers on each page",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_top": {
+                                "$lte": "76"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "text_line_update": [
+            {
+                "comment": "Mark H1 based on the font name",
+                "heading": "h1",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Georgia-BoldItalic"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark H2 based on the font name",
+                "heading": "h2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "Arial-BoldMT"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Mark line that starts with 1., 2., 3., 4. etc as a label, but do not convert it into a list later, to remain a label together with the text",
+                "label": "label",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\d+\\.$"
+                            }
+                        },
+                        {
+                            "$0_font_name": {
+                                "$regex": "Arial-BoldMT"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
