@@ -1,0 +1,66 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2026-04-01",
+        "modified": "2026-05-19",
+        "notes": "",
+        "sdk_version": "9.0.1",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "list_update": [
+            {
+                "comment": "Mark each list as continuous ",
+                "flag": "continuous",
+                "query": {
+                    "param": [
+                        "pde_list"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "object_update": [
+            {
+                "comment": "Artifact headers on each page",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_bottom": {
+                                "$gte": "758"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact footers on each page",
+                "flag": "artifact",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_top": {
+                                "$lte": "66"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
