@@ -2,9 +2,9 @@
     "metadata": {
         "author": "name",
         "created": "2025-07-22",
-        "modified": "2025-08-18",
+        "modified": "2026-05-19",
         "notes": "",
-        "sdk_version": "8.7.3",
+        "sdk_version": "9.0.1",
         "version": "1"
     },
     "settings": {
@@ -98,11 +98,6 @@
                                                 "pds_path"
                                             ]
                                         },
-                                        "statement": "$if"
-                                    }
-                                ],
-                                "pagemap": [
-                                    {
                                         "statement": "$if"
                                     }
                                 ]
@@ -4668,18 +4663,6 @@
                 "statement": "$if"
             }
         ],
-        "label_update": [
-            {
-                "label": "li_1",
-                "query": {
-                    "param": [
-                        "pde_element",
-                        "pde_word"
-                    ]
-                },
-                "statement": "$if"
-            }
-        ],
         "object_update": [
             {
                 "comment": "Mark header on other pages as artifact",
@@ -4722,6 +4705,15 @@
                     ]
                 },
                 "statement": "$if"
+            }
+        ],
+        "pagemap": [
+            {
+                "graphic_table_detect": "0",
+                "label_image_detect": "0",
+                "label_word_detect": "0",
+                "statement": "$if",
+                "text_table_detect": "0"
             }
         ],
         "text_line_neighbours": [
@@ -4828,6 +4820,25 @@
                     ],
                     "param": [
                         "pde_word",
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "label": "li_1",
+                "numbering": "Disc",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\u00EF"
+                            }
+                        }
+                    ],
+                    "param": [
                         "pde_word"
                     ]
                 },
