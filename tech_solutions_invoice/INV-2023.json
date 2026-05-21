@@ -2,9 +2,9 @@
     "metadata": {
         "author": "name",
         "created": "2025-06-20",
-        "modified": "2025-08-23",
+        "modified": "2026-05-21",
         "notes": "",
-        "sdk_version": "8.7.3",
+        "sdk_version": "9.0.1",
         "version": "1"
     },
     "settings": {
@@ -65,14 +65,34 @@
                                                 "type": "pde_text"
                                             },
                                             {
-                                                "alt": "Invoice payment status: Paid",
                                                 "bbox": [
                                                     "520.9461059570312",
                                                     "784.3612670898438",
                                                     "560.6473999023438",
                                                     "806.1027221679688"
                                                 ],
-                                                "comment": "Tag \"PAID\" image",
+                                                "comment": "Tag Invoice payment status image",
+                                                "element_template": {
+                                                    "template": {
+                                                        "element_prop_update": [
+                                                            {
+                                                                "bbox_padding": "false",
+                                                                "children": "true",
+                                                                "destination": "false",
+                                                                "mc": "false",
+                                                                "next": "false",
+                                                                "prev": "false",
+                                                                "property": "alt",
+                                                                "query": {
+                                                                    "param": [
+                                                                        "pde_element"
+                                                                    ]
+                                                                },
+                                                                "statement": "$if"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
                                                 "type": "pde_image"
                                             },
                                             {
@@ -87,6 +107,24 @@
                                             }
                                         ],
                                         "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "object_update": [
+                                    {
+                                        "flag": "artifact",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$0_width": {
+                                                        "$gt": "500"
+                                                    }
+                                                }
+                                            ],
+                                            "param": [
+                                                "pds_object"
+                                            ]
                                         },
                                         "statement": "$if"
                                     }
