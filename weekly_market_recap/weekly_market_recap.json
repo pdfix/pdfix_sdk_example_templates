@@ -2,7 +2,7 @@
     "metadata": {
         "author": "name",
         "created": "2025-07-22",
-        "modified": "2026-05-19",
+        "modified": "2026-06-15",
         "notes": "",
         "sdk_version": "9.0.1",
         "version": "1"
@@ -20,10 +20,10 @@
                 "elements": [
                     {
                         "bbox": [
-                            "2.7185356616973877",
-                            "557.6000366210938",
-                            "791.0938720703125",
-                            "612.0000610351562"
+                            0,
+                            557,
+                            "$page_width",
+                            "$page_height"
                         ],
                         "comment": "Tag header as single instance",
                         "element_template": {
@@ -82,10 +82,10 @@
                     {
                         "alt": "Chart of the Week",
                         "bbox": [
-                            "282.7276916503906",
-                            "46.24005126953125",
-                            "502",
-                            "223.0400390625"
+                            282,
+                            46,
+                            502,
+                            223
                         ],
                         "comment": "Tag Chart of Week as image",
                         "element_template": {
@@ -108,10 +108,10 @@
                     {
                         "alt": "Style Returns",
                         "bbox": [
-                            "503",
-                            "46.24005126953125",
-                            "595",
-                            "223.0400390625"
+                            503,
+                            46,
+                            595,
+                            223
                         ],
                         "comment": "Tag Style Returns as image",
                         "type": "pde_image"
@@ -119,20 +119,20 @@
                     {
                         "alt": "S&P 500 Sector Returns",
                         "bbox": [
-                            "595",
-                            "41",
+                            595,
+                            41,
                             "$page_width",
-                            "223.0400390625"
+                            223
                         ],
                         "comment": "Tag S&P 500 Sector Returns as image",
                         "type": "pde_image"
                     },
                     {
                         "bbox": [
-                            "283.04",
-                            "253.00",
-                            "765.52",
-                            "536.67"
+                            283,
+                            253,
+                            765,
+                            536
                         ],
                         "col_num": "11",
                         "element_template": {
@@ -4621,10 +4621,10 @@
                 "elements": [
                     {
                         "bbox": [
-                            "0",
-                            "0",
+                            0,
+                            0,
                             "$page_width",
-                            "39.30"
+                            40
                         ],
                         "element_template": {
                             "template": {
@@ -4634,9 +4634,9 @@
                                             {
                                                 "alt": "Logo: J.P.Morgan",
                                                 "bbox": [
-                                                    "0",
-                                                    "0",
-                                                    "223",
+                                                    0,
+                                                    0,
+                                                    223,
                                                     "$parent_top"
                                                 ],
                                                 "comment": "Tag J.P.Morgan logo as image",
