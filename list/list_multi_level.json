@@ -1,0 +1,132 @@
+{
+    "metadata": {
+        "author": "name",
+        "created": "2026-05-19",
+        "modified": "2026-06-17",
+        "notes": "",
+        "sdk_version": "9.0.2",
+        "version": "1"
+    },
+    "settings": {
+        "debug_pagemap_stop": "",
+        "page_tag": "NonStruct",
+        "rtl": "false",
+        "substructure_form_xobject": "true"
+    },
+    "template": {
+        "list_update": [
+            {
+                "comment": "Mark all lists as continuous",
+                "flag": "continuous",
+                "query": {
+                    "param": [
+                        "pde_list"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "object_update": [
+            {
+                "comment": "Artifact all header and footer objects",
+                "flag": "artifact",
+                "query": {
+                    "$or": [
+                        {
+                            "$0_top": {
+                                "$lte": "40"
+                            }
+                        },
+                        {
+                            "$0_bottom": {
+                                "$gte": "770"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pds_object"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "word_update": [
+            {
+                "comment": "Mark words that define list level 1 ",
+                "label": "li_1",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\([a-z]\\)$"
+                            }
+                        },
+                        {
+                            "$0_right": {
+                                "$lte": "90"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark words that define list level 2",
+                "label": "li_2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\(\\d+\\)$"
+                            }
+                        },
+                        {
+                            "$0_right": {
+                                "$lte": "130"
+                            }
+                        },
+                        {
+                            "$0_left": {
+                                "$gte": "90"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark words that define list level 3",
+                "label": "li_3",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "^\\([ivx]+\\)$"
+                            }
+                        },
+                        {
+                            "$0_right": {
+                                "$lte": "130"
+                            }
+                        },
+                        {
+                            "$0_left": {
+                                "$gte": "90"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "statement": "$if"
+            }
+        ]
+    }
+}
