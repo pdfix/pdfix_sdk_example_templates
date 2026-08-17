@@ -238,7 +238,8 @@
                 "label_image_detect": "0",
                 "label_word_detect": "0",
                 "statement": "$if",
-                "text_table_detect": "0"
+                "text_table_detect": "0",
+                "table_update_span_empty": "0"
             }
         ],
         "text_line_update": [
