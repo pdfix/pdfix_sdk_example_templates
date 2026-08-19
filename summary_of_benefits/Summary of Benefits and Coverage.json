@@ -2,9 +2,9 @@
     "metadata": {
         "author": "name",
         "created": "2026-08-01",
-        "modified": "2026-08-05",
+        "modified": "2026-08-14",
         "notes": "",
-        "sdk_version": "9.1.1",
+        "sdk_version": "9.2.0",
         "version": "1"
     },
     "settings": {
@@ -18,11 +18,73 @@
             {
                 "cell_header": "true",
                 "cell_scope": "column",
+                "comment": "Mark table header cell with column scope  ",
                 "query": {
                     "$and": [
                         {
                             "$1_font_name": {
                                 "$regex": "ArialNarrow-Bold"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_table",
+                        "pde_cell"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "cell_header": "true",
+                "cell_scope": "row",
+                "comment": "Mark table header cell with row scope",
+                "query": {
+                    "$and": [
+                        {
+                            "$1_cell_column": "1"
+                        }
+                    ],
+                    "param": [
+                        "pde_table",
+                        "pde_cell"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "cell_header": "true",
+                "cell_scope": "column",
+                "comment": "Mark table cell 0,0 with column scope",
+                "query": {
+                    "$and": [
+                        {
+                            "$1_font_name": {
+                                "$regex": "ArialNarrow-Bold"
+                            }
+                        },
+                        {
+                            "$1_cell_column": "1"
+                        },
+                        {
+                            "$1_cell_row": "1"
+                        }
+                    ],
+                    "param": [
+                        "pde_table",
+                        "pde_cell"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "cell_header": "true",
+                "cell_scope": "column",
+                "comment": "Mark table cells italic with column scope",
+                "query": {
+                    "$and": [
+                        {
+                            "$1_font_name": {
+                                "$regex": "ArialNarrow-Italic"
                             }
                         }
                     ],
@@ -125,414 +187,7 @@
                             "$page_width",
                             534
                         ],
-                        "comment": "Create P from first warning",
-                        "type": "pde_text"
-                    },
-                    {
-                        "bbox": [
-                            32.87,
-                            93.33,
-                            758.37,
-                            462.83
-                        ],
-                        "col_num": "3",
-                        "comment": "Create Table",
-                        "element_template": {
-                            "template": {
-                                "element_create": [
-                                    {
-                                        "elements": [
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,20.65)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,20.65)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "true",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,20.65)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,0.00)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "1",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,82.62)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,20.66)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "2",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,82.62)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,20.66)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "2",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,82.62)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,20.66)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "2",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,143.05)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,82.62)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "3",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,143.05)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,82.62)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "3",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,143.05)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,82.62)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "3",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,180.54)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,143.06)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "4",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,180.54)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,143.06)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "4",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,180.54)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,143.06)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "4",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,218.79)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,180.54)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "5",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,218.79)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,180.54)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "5",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,218.79)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,180.54)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "5",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,268.51)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,218.79)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "6",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,268.51)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,218.79)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "6",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,268.51)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,218.79)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "6",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,341.19)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,268.52)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "7",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,341.19)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,268.52)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "7",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,341.19)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,268.52)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "7",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,0.00)",
-                                                    "MINUS($parent_top,369.49)",
-                                                    "SUM($parent_left,122.32)",
-                                                    "MINUS($parent_top,341.19)"
-                                                ],
-                                                "cell_column": "1",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "8",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,122.31)",
-                                                    "MINUS($parent_top,369.49)",
-                                                    "SUM($parent_left,360.84)",
-                                                    "MINUS($parent_top,341.19)"
-                                                ],
-                                                "cell_column": "2",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "8",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            },
-                                            {
-                                                "bbox": [
-                                                    "SUM($parent_left,360.83)",
-                                                    "MINUS($parent_top,369.49)",
-                                                    "SUM($parent_left,725.50)",
-                                                    "MINUS($parent_top,341.19)"
-                                                ],
-                                                "cell_column": "3",
-                                                "cell_column_span": "1",
-                                                "cell_header": "false",
-                                                "cell_row": "8",
-                                                "cell_row_span": "1",
-                                                "cell_scope": "column",
-                                                "type": "pde_cell"
-                                            }
-                                        ],
-                                        "query": {
-                                        },
-                                        "statement": "$if"
-                                    }
-                                ],
-                                "table_update": [
-                                    {
-                                        "comment": "Join texts inside cells",
-                                        "join": "true",
-                                        "query": {
-                                            "param": [
-                                                "pde_table"
-                                            ]
-                                        },
-                                        "statement": "$if"
-                                    }
-                                ]
-                            }
-                        },
-                        "row_num": "8",
-                        "type": "pde_table"
-                    },
-                    {
-                        "bbox": [
-                            0,
-                            50,
-                            "$page_width",
-                            92
-                        ],
-                        "comment": "Create P from second warning",
+                        "comment": "Create P from first WARNING",
                         "type": "pde_text"
                     }
                 ],
@@ -546,7 +201,30 @@
                 "statement": "$if"
             },
             {
-                "comment": "Tag continuous table",
+                "comment": "Tag first continuous table - Important Questions",
+                "elements": [
+                    {
+                        "end_bbox": [
+                            35,
+                            "SUM($ANCHOR-WARNING2_top,14)",
+                            755,
+                            "SUM($ANCHOR-WARNING2_top,14)"
+                        ],
+                        "flag": "continuous",
+                        "name": "TABLE-QUESTIONS",
+                        "start_bbox": [
+                            35,
+                            "$ANCHOR-TABLE1-START_top",
+                            755,
+                            "$ANCHOR-TABLE1-START_top"
+                        ],
+                        "type": "pde_table"
+                    }
+                ],
+                "statement": "$if"
+            },
+            {
+                "comment": "Tag second continuous table - What You Will Pay",
                 "elements": [
                     {
                         "end_bbox": [
@@ -566,8 +244,22 @@
                         "type": "pde_table"
                     }
                 ],
-                "query": {
-                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Create P element from second WARNING",
+                "elements": [
+                    {
+                        "bbox": [
+                            0,
+                            "MINUS($ANCHOR-WARNING2_bottom,14)",
+                            "$page_width",
+                            "SUM($ANCHOR-WARNING2_top,14)"
+                        ],
+                        "name": "WARNING2",
+                        "type": "pde_text"
+                    }
+                ],
                 "statement": "$if"
             },
             {
@@ -585,39 +277,339 @@
                     },
                     {
                         "bbox": [
-                            34.8,
+                            34,
                             180,
-                            270,
+                            272,
                             500
                         ],
-                        "comment": "Create Table",
+                        "comment": "Create Container",
+                        "element_template": {
+                            "template": {
+                                "cell_update": [
+                                    {
+                                        "cell_header": "true",
+                                        "cell_scope": "column",
+                                        "comment": "Mark table cells italic with column scope",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$1_font_name": {
+                                                        "$regex": "ArialNarrow-Italic"
+                                                    }
+                                                }
+                                            ],
+                                            "param": [
+                                                "pde_table",
+                                                "pde_cell"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    488,
+                                                    "$parent_right",
+                                                    "$parent_top"
+                                                ],
+                                                "heading": "h3",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    456,
+                                                    "$parent_right",
+                                                    488
+                                                ],
+                                                "flag": "no_split",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    396,
+                                                    "$parent_right",
+                                                    456
+                                                ],
+                                                "type": "pde_list"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    380,
+                                                    "$parent_right",
+                                                    396
+                                                ],
+                                                "heading": "h4",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    320,
+                                                    "$parent_right",
+                                                    380
+                                                ],
+                                                "flag": "no_split",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    296,
+                                                    "$parent_right",
+                                                    314
+                                                ],
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    180,
+                                                    "$parent_right",
+                                                    278
+                                                ],
+                                                "type": "pde_table"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
                         "flag": "no_join|no_split|no_expand",
-                        "text_flag": "new_line",
-                        "type": "pde_table"
+                        "type": "pde_container"
                     },
                     {
                         "bbox": [
-                            270,
+                            278,
                             180,
                             514,
                             500
                         ],
-                        "comment": "Create Table",
+                        "comment": "Create Container",
+                        "element_template": {
+                            "template": {
+                                "cell_update": [
+                                    {
+                                        "cell_header": "true",
+                                        "cell_scope": "column",
+                                        "comment": "Mark table cells italic with column scope",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$1_font_name": {
+                                                        "$regex": "ArialNarrow-Italic"
+                                                    }
+                                                }
+                                            ],
+                                            "param": [
+                                                "pde_table",
+                                                "pde_cell"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    488,
+                                                    "$parent_right",
+                                                    "$parent_top"
+                                                ],
+                                                "heading": "h3",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    456,
+                                                    "$parent_right",
+                                                    488
+                                                ],
+                                                "flag": "no_split",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    396,
+                                                    "$parent_right",
+                                                    456
+                                                ],
+                                                "type": "pde_list"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    380,
+                                                    "$parent_right",
+                                                    396
+                                                ],
+                                                "heading": "h4",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    320,
+                                                    "$parent_right",
+                                                    380
+                                                ],
+                                                "flag": "no_split",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    296,
+                                                    "$parent_right",
+                                                    314
+                                                ],
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    180,
+                                                    "$parent_right",
+                                                    278
+                                                ],
+                                                "type": "pde_table"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
                         "flag": "no_join|no_split|no_expand",
-                        "text_flag": "new_line",
-                        "type": "pde_table"
+                        "type": "pde_container"
                     },
                     {
                         "bbox": [
-                            514,
+                            522,
                             180,
-                            756,
+                            758,
                             500
                         ],
-                        "comment": "Create Table",
+                        "comment": "Create Container",
+                        "element_template": {
+                            "template": {
+                                "cell_update": [
+                                    {
+                                        "cell_header": "true",
+                                        "cell_scope": "column",
+                                        "comment": "Mark table cells italic with column scope",
+                                        "query": {
+                                            "$and": [
+                                                {
+                                                    "$1_font_name": {
+                                                        "$regex": "ArialNarrow-Italic"
+                                                    }
+                                                }
+                                            ],
+                                            "param": [
+                                                "pde_table",
+                                                "pde_cell"
+                                            ]
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ],
+                                "element_create": [
+                                    {
+                                        "elements": [
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    488,
+                                                    "$parent_right",
+                                                    "$parent_top"
+                                                ],
+                                                "heading": "h3",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    456,
+                                                    "$parent_right",
+                                                    488
+                                                ],
+                                                "flag": "no_split",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    396,
+                                                    "$parent_right",
+                                                    456
+                                                ],
+                                                "type": "pde_list"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    380,
+                                                    "$parent_right",
+                                                    396
+                                                ],
+                                                "heading": "h4",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    320,
+                                                    "$parent_right",
+                                                    380
+                                                ],
+                                                "flag": "no_split",
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    296,
+                                                    "$parent_right",
+                                                    314
+                                                ],
+                                                "type": "pde_text"
+                                            },
+                                            {
+                                                "bbox": [
+                                                    "$parent_left",
+                                                    180,
+                                                    "$parent_right",
+                                                    278
+                                                ],
+                                                "type": "pde_table"
+                                            }
+                                        ],
+                                        "query": {
+                                        },
+                                        "statement": "$if"
+                                    }
+                                ]
+                            }
+                        },
                         "flag": "no_join|no_split|no_expand",
-                        "text_flag": "new_line",
-                        "type": "pde_table"
+                        "type": "pde_container"
                     }
                 ],
                 "query": {
@@ -625,6 +617,30 @@
                         {
                             "$page_num": "$doc_num_pages"
                         }
+                    ]
+                },
+                "statement": "$if"
+            }
+        ],
+        "image_update": [
+            {
+                "alt": "Translation:  1-800-782-3740",
+                "comment": "Add alternate to language image",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_width": {
+                                "$gt": "500"
+                            }
+                        },
+                        {
+                            "$0_height": {
+                                "$gt": "140"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_image"
                     ]
                 },
                 "statement": "$if"
@@ -671,33 +687,14 @@
                     ]
                 },
                 "statement": "$if"
-            },
-            {
-                "comment": "Artifact OCR image",
-                "flag": "artifact",
-                "query": {
-                    "$and": [
-                        {
-                            "$0_width": {
-                                "$gt": "500"
-                            }
-                        },
-                        {
-                            "$0_height": {
-                                "$gt": "140"
-                            }
-                        }
-                    ],
-                    "param": [
-                        "pds_image"
-                    ]
-                },
-                "statement": "$if"
             }
         ],
         "pagemap": [
             {
+                "graphic_table_detect": "0",
                 "statement": "$if",
+                "table_update_cell_header": "0",
+                "text_table_detect": "0",
                 "text_table_detect_col": "0",
                 "text_table_detect_row": "0",
                 "word_space_distance_max": "20"
@@ -777,6 +774,7 @@
         ],
         "text_line_update": [
             {
+                "comment": "Mark ANCHOR-H2",
                 "flag": "no_split|no_join|anchor",
                 "name": "ANCHOR-H2",
                 "query": {
@@ -787,6 +785,11 @@
                                 "105",
                                 "149"
                             ]
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "^Excluded Services & Other Covered Services:"
+                            }
                         }
                     ],
                     "param": [
@@ -796,6 +799,7 @@
                 "statement": "$if"
             },
             {
+                "comment": "Mark ANCHOR-TABLE-START - What You Will Pay",
                 "flag": "anchor",
                 "name": "ANCHOR-TABLE-START",
                 "query": {
@@ -820,6 +824,7 @@
                 "statement": "$if"
             },
             {
+                "comment": "mark ANCHOR-NOT-COVER-START - Services Your Plan Generally Does NOT Cover",
                 "flag": "anchor",
                 "name": "ANCHOR-NOT-COVER-START",
                 "query": {
@@ -837,6 +842,7 @@
                 "statement": "$if"
             },
             {
+                "comment": "Mark ANCHOR-OTHER-COVER-START - Other Covered Services (Limitations may...",
                 "flag": "anchor",
                 "name": "ANCHOR-OTHER-COVER-START",
                 "query": {
@@ -852,10 +858,57 @@
                     ]
                 },
                 "statement": "$if"
+            },
+            {
+                "comment": "Mark ANCHOR-TABLE1-START - Important Questions",
+                "flag": "anchor",
+                "name": "ANCHOR-TABLE1-START",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_fill_color": [
+                                "255",
+                                "255",
+                                "255"
+                            ]
+                        },
+                        {
+                            "$0_text": {
+                                "$regex": "Important Questions"
+                            }
+                        },
+                        {
+                            "$page_num": "1"
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
+            },
+            {
+                "comment": "Mark ANCHOR-WARNING2 - All copayment and coinsurance costs...",
+                "flag": "anchor",
+                "name": "ANCHOR-WARNING2",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_text": {
+                                "$regex": "All copayment and coinsurance costs shown in this chart are after you*"
+                            }
+                        }
+                    ],
+                    "param": [
+                        "pde_text_line"
+                    ]
+                },
+                "statement": "$if"
             }
         ],
         "word_update": [
             {
+                "comment": "Mark H2",
                 "heading": "h2",
                 "query": {
                     "$and": [
@@ -871,6 +924,33 @@
                         "pde_word"
                     ]
                 },
+                "statement": "$if"
+            },
+            {
+                "comment": "Artifact repeated table headers",
+                "query": {
+                    "$and": [
+                        {
+                            "$0_font_name": {
+                                "$regex": "ArialNarrow-Bold"
+                            }
+                        },
+                        {
+                            "$0_font_size": "12"
+                        },
+                        {
+                            "$0_fill_color": [
+                                "255",
+                                "255",
+                                "255"
+                            ]
+                        }
+                    ],
+                    "param": [
+                        "pde_word"
+                    ]
+                },
+                "single_instance": "font_size|font_name|fill_color|bbox",
                 "statement": "$if"
             }
         ]
